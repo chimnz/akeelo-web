@@ -17,8 +17,15 @@ const inputStyle = {
 
 function HomePage() {
 	const router = useRouter()
+	let formInput = React.createRef();
+
 	function doSearch() {
-		router.push({pathname: '/search'})
+		router.push({
+			pathname: '/search',
+			query: {
+				q: formInput.current.value
+			}
+		})
 	}
 
 	return (
@@ -31,6 +38,7 @@ function HomePage() {
 				onSubmit={doSearch}
 			>
 				<input
+					ref={formInput}
 					style={inputStyle}
 					type='text'
 				/>
