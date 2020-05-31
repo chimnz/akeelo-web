@@ -19,7 +19,7 @@ function HomePage() {
 	const router = useRouter()
 	let formInput = React.createRef();
 
-	function doSearch() {
+	function goToSearchPage() {
 		router.push({
 			pathname: '/search',
 			query: {
@@ -35,7 +35,7 @@ function HomePage() {
 		>
 			<div style={akeeloStyle}>akeelo</div>
 			<form
-				onSubmit={doSearch}
+				onSubmit={goToSearchPage}
 			>
 				<input
 					ref={formInput}
