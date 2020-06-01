@@ -1,3 +1,4 @@
+import SearchResults from '../components/SearchResults'
 import { useState, useEffect } from 'react'
 
 export async function getServerSideProps(context) {
@@ -39,11 +40,7 @@ function SearchPage(props) {
 			.then(titles => setResults(titles))
 	}, [])
 
-	return (
-		<div>
-			{results}
-		</div>
-	)
+	return <SearchResults results={results}/>
 }
 
 export default SearchPage
