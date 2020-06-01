@@ -13,9 +13,32 @@ async function doSearch(urlQueryParams) {
 	const endpoint = 'https://share.osf.io/api/v2/search/creativeworks/_search'
 	const payload = {
 		'query': {
-			'query_string': {
-				'query': q
+			'bool': {
+				'must': {
+					'query_string': {
+						'query': q
+					},
+				},
+				'filter': [
+					{
+						'terms': {
+							'type': [
+								'article',
+								'conference paper',
+								'dissertation',
+								'preprint',
+								'publication',
+								'registration',
+								'report',
+								'thesis'
+							]
+						}
+					},
+				],
 			}
+		},
+		'sort': {
+			'date_updated': 'desc'
 		},
 		'from': offset
 	}
