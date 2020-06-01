@@ -3,16 +3,38 @@
 }
 
 .result {
-	padding: 1em;
 	line-height: 30px;
 	font-size: 1.75rem;
 	font-family: RegularFont;
 	background-color: white;
-	padding: 2.5rem;
 	border-bottom: 1.5px dashed black;
+	display: flex;
+}
+
+.info {
+	flex-basis: 80%;
+	padding: 1em;
 }
 
 .title {
 	font-size: 2.5rem;
 	font-family: LogoFont;
+}
+
+.link {
+	flex-basis: 20%;
+}
+
+.link:hover {
+	background-color: mintcream;
+}
+
+.innerLink {
+	width: 100%; height: 100%;
+	display: flex;
+}
+
+.linkIcon {
+	width: 2em;
+	margin: auto;
 }
