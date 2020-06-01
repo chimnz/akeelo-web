@@ -23,6 +23,7 @@ function HomePage() {
 					className='searchbox'
 					ref={formInput}
 					type='text'
+					placeholder='search for science'
 				/>
 			</form>
 		</div>
