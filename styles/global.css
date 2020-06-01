@@ -3,10 +3,14 @@
 html, body { margin: 0; padding: 0; }
 html { font-size: 10px; }
 
+body {
+	font-family: RegularFont;
+}
+
 .homepage-search {
 	/* credit: https://w3codepen.com/html-css-full-screen-overlay-menu/ */
 	position: fixed;
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 
@@ -16,10 +20,13 @@ html { font-size: 10px; }
 }
 
 .homepage-search .logo {
-	font-size: 10rem;
+	font-family: LogoFont;
+	font-size: 8rem;
 }
 
 .homepage-search .searchbox {
+	font-family: SearchFontLight;
+	font-size: 1.65rem;
 	width: 20rem;
 	height: 3rem;
 }
