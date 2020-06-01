@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export async function getServerSideProps(context) {
 	const urlQueryParams = context.query
@@ -30,13 +30,18 @@ async function doSearch(urlQueryParams) {
 }
 
 function SearchPage(props) {
+	const [ results, setResults ] = useState(<h1>loading...</h1>)
+
 	useEffect(() => {
-		doSearch(props.urlQueryParams).then(data => console.log(data))
+		doSearch(props.urlQueryParams)
+			.then(data => data.hits.hits.map(item => item._source))
+			.then(results => results.map(item => <h1>{item.title}</h1>))
+			.then(titles => setResults(titles))
 	}, [])
 
 	return (
 		<div>
-			This is a search page. The query {props.urlQueryParams.q}.
+			{results}
 		</div>
 	)
 }
