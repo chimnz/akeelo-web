@@ -31,13 +31,12 @@ async function doSearch(urlQueryParams) {
 }
 
 function SearchPage(props) {
-	const [ results, setResults ] = useState(<h1>loading...</h1>)
+	const [ results, setResults ] = useState()
 
 	useEffect(() => {
 		doSearch(props.urlQueryParams)
 			.then(data => data.hits.hits.map(item => item._source))
-			.then(results => results.map(item => <h1>{item.title}</h1>))
-			.then(titles => setResults(titles))
+			.then(results => setResults(results))
 	}, [])
 
 	return <SearchResults results={results}/>
