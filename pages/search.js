@@ -1,26 +1,41 @@
-import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
-async function doSearch() {
-	const endpoint = 'https://share.osf.io/api/v2/search/creativeworks/_search'
-	const response = await fetch(endpoint, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/vnd.api+json'
-		}	
-	})
-	const data = await response.json()
-	return data;
+export async function getServerSideProps(context) {
+	return {
+		props: {q: context.query.q}, // will be passed to the page component as props
+	}
 }
 
-doSearch()
-	.then(data => console.log(data))
+async function doSearch(q, offset=0) {
+	const endpoint = 'https://share.osf.io/api/v2/search/creativeworks/_search'
+	const payload = {
+		'query': {
+			'query_string': {
+				'query': q,
+			}
+		},
+		'from': offset
+	}
+	const response = await fetch(endpoint, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(payload)
+	})
+	const data = await response.json()
+	return data
+}
 
-function SearchPage() {
-	const router = useRouter()
+function SearchPage(props) {
+	useEffect(() => {
+		doSearch(props.q).then(data => console.log(data))
+		console.log(props.q)
+	}, [])
 
 	return (
 		<div>
-			This is a search page. The query: {router.query.q}.
+			This is a search page. The query: {props.q}.
 		</div>
 	)
 }
