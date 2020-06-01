@@ -26,7 +26,10 @@ function SearchResults(props) {
 					</div>
 				</div>
 				<div className={styles.link}>
-					<a href={item.identifiers[0]}>
+					<a
+						target='_blank'
+						href={item.identifiers[0]}
+					>
 						<div className={styles.innerLink}>
 							<img
 								className={styles.linkIcon}
