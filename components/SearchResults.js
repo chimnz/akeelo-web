@@ -1,5 +1,5 @@
 import styles from '../styles/SearchResults.module.css'
-import linkIcon from '../assets/images/iconmonstr-link-thin.svg'
+import linkIcon from '../assets/images/iconmonstr-link-2.svg'
 
 function SearchResults(props) {
 	if (props.results) {
