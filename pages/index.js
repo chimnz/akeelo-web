@@ -1,20 +1,5 @@
 import { useRouter } from 'next/router'
 
-const outerDivStyle = {
-	display: 'flex',
-	flexDirection: 'column',
-	alignItems: 'center'
-}
-
-const akeeloStyle = {
-	fontSize: '10rem'
-}
-
-const inputStyle = {
-	width: '20rem',
-	height: '3rem'
-}
-
 function HomePage() {
 	const router = useRouter()
 	let formInput = React.createRef();
@@ -29,17 +14,14 @@ function HomePage() {
 	}
 
 	return (
-		<div
-			style={outerDivStyle}
-			className='center-fixed'
-		>
-			<div style={akeeloStyle}>akeelo</div>
+		<div className='homepage-search'>
+			<div className='logo'>akeelo</div>
 			<form
 				onSubmit={goToSearchPage}
 			>
 				<input
+					className='searchbox'
 					ref={formInput}
-					style={inputStyle}
 					type='text'
 				/>
 			</form>
