@@ -1,3 +1,4 @@
+import styles from '../styles/HomePage.module.css'
 import { useRouter } from 'next/router'
 
 function HomePage() {
@@ -14,13 +15,14 @@ function HomePage() {
 	}
 
 	return (
-		<div className='homepage-search'>
-			<div className='logo'>akeelo</div>
+		<div className={styles.wrapper}>
+			<div className={styles.logo}>akeelo</div>
 			<form
+				className={styles.bigSearch}
 				onSubmit={goToSearchPage}
 			>
 				<input
-					className='searchbox'
+					className={styles.textInput}
 					ref={formInput}
 					type='text'
 					placeholder='search for science'

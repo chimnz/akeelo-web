@@ -1,0 +1,35 @@
+.wrapper {
+	/* credit: https://w3codepen.com/html-css-full-screen-overlay-menu/ */
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 85%;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.bigSearch {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.logo {
+	font-family: LogoFont;
+	font-size: 8rem;
+	margin-bottom: 2rem;
+}
+
+.textInput {
+	width: inherit;
+	height: 2rem;
+	font-family: SearchFontLight;
+	font-size: 1.75rem;
+	padding: 1rem;
+	border: 1px solid lightgray;
+	border-radius: 15px;
+}
