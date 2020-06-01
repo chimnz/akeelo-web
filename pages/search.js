@@ -1,17 +1,19 @@
 import { useEffect } from 'react'
 
 export async function getServerSideProps(context) {
+	const urlQueryParams = context.query
 	return {
-		props: {q: context.query.q}, // will be passed to the page component as props
+		props: {urlQueryParams: urlQueryParams} // will be passed to the page component as props
 	}
 }
 
-async function doSearch(q, offset=0) {
+async function doSearch(urlQueryParams) {
+	const {q, offset} = urlQueryParams
 	const endpoint = 'https://share.osf.io/api/v2/search/creativeworks/_search'
 	const payload = {
 		'query': {
 			'query_string': {
-				'query': q,
+				'query': q
 			}
 		},
 		'from': offset
@@ -29,13 +31,12 @@ async function doSearch(q, offset=0) {
 
 function SearchPage(props) {
 	useEffect(() => {
-		doSearch(props.q).then(data => console.log(data))
-		console.log(props.q)
+		doSearch(props.urlQueryParams).then(data => console.log(data))
 	}, [])
 
 	return (
 		<div>
-			This is a search page. The query: {props.q}.
+			This is a search page. The query {props.urlQueryParams.q}.
 		</div>
 	)
 }
