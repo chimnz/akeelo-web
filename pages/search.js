@@ -37,9 +37,6 @@ async function doSearch(urlQueryParams) {
 				],
 			}
 		},
-		'sort': {
-			'date_updated': 'desc'
-		},
 		'from': offset
 	}
 	const response = await fetch(endpoint, {
