@@ -25,11 +25,11 @@
 }
 
 .textInput {
+	box-sizing: border-box;
 	width: inherit;
-	height: 2rem;
+	height: 4rem;
 	font-family: SearchFontLight;
 	font-size: 1.75rem;
 	padding: 1rem;
 	border: 1px solid lightgray;
-	/* border-radius: 15px; */
 }
