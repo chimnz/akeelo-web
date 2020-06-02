@@ -3,6 +3,7 @@ import linkIcon from '../assets/images/iconmonstr-link-2.svg'
 import contributorsIcon from '../assets/images/iconmonstr-user-circle-thin.svg'
 import typeIcon from '../assets/images/iconmonstr-document-thin.svg'
 import sourceIcon from '../assets/images/iconmonstr-database-thin.svg'
+import dateIcon from '../assets/images/iconmonstr-pencil-thin.svg'
 
 function SearchResults(props) {
 	if (props.results) {
@@ -24,11 +25,9 @@ function SearchResults(props) {
 						<img className='inline-icon' src={sourceIcon} />
 						{item.sources}
 					</div>
-					<div>
-						date_updated: {item.date_updated}
-					</div>
-					<div>
-						date_published: {item.date_published}
+					<div className={styles.date}>
+						<img className='inline-icon' src={dateIcon} />
+						{item.date_updated}
 					</div>
 				</div>
 				<div className={styles.link}>
