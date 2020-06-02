@@ -1,7 +1,7 @@
 import styles from '../styles/SearchResults.module.css'
 import linkIcon from '../assets/images/iconmonstr-link-2.svg'
 import contributorsIcon from '../assets/images/iconmonstr-user-circle-thin.svg'
-import typeIcon from '../assets/images/iconmonstr-file-thin.svg'
+import typeIcon from '../assets/images/iconmonstr-document-thin.svg'
 import sourceIcon from '../assets/images/iconmonstr-database-thin.svg'
 
 function SearchResults(props) {
