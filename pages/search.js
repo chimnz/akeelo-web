@@ -1,3 +1,4 @@
+import Header from '../components/Header'
 import SearchResults from '../components/SearchResults'
 import { useState, useEffect } from 'react'
 
@@ -28,7 +29,6 @@ async function doSearch(urlQueryParams) {
 								'dissertation',
 								'preprint',
 								'publication',
-								'registration',
 								'report',
 								'thesis'
 							]
@@ -59,7 +59,12 @@ function SearchPage(props) {
 			.then(results => setResults(results))
 	}, [])
 
-	return <SearchResults results={results}/>
+	return (
+		<>
+			<Header />
+			<SearchResults results={results} />
+		</>
+	)
 }
 
 export default SearchPage
