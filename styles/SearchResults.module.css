@@ -26,6 +26,11 @@
 	align-items: center;
 }
 
+.source {
+	display: flex;
+	align-items: center;
+}
+
 .title {
 	font-size: 2.5rem;
 	font-family: LogoFont;
