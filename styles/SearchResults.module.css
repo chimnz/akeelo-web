@@ -21,9 +21,9 @@
 	align-items: center;
 }
 
-.contributors > img {
-	width: 1.2em; height: 1.2em;
-	margin-right: 0.5em;
+.type {
+	display: flex;
+	align-items: center;
 }
 
 .title {
