@@ -2,8 +2,9 @@ import styles from '../styles/SearchResults.module.css'
 import linkIcon from '../assets/images/iconmonstr-link-2.svg'
 import contributorsIcon from '../assets/images/iconmonstr-user-circle-thin.svg'
 import typeIcon from '../assets/images/iconmonstr-document-thin.svg'
-import sourceIcon from '../assets/images/iconmonstr-database-thin.svg'
+import sourcesIcon from '../assets/images/iconmonstr-database-thin.svg'
 import dateIcon from '../assets/images/iconmonstr-pencil-thin.svg'
+import publishersIcon from '../assets/images/iconmonstr-folder-thin.svg'
 
 function SearchResults(props) {
 	if (props.results) {
@@ -26,9 +27,13 @@ function SearchResults(props) {
 						<img className='inline-icon' src={typeIcon} />
 						{item.type}
 					</div>
-					<div className={styles.source}>
-						<img className='inline-icon' src={sourceIcon} />
+					<div className={styles.sources}>
+						<img className='inline-icon' src={sourcesIcon} />
 						{item.sources}
+					</div>
+					<div className={styles.publishers}>
+						<img className='inline-icon' src={publishersIcon} />
+						{item.publishers}
 					</div>
 					<div className={styles.date}>
 						<img className='inline-icon' src={dateIcon} />

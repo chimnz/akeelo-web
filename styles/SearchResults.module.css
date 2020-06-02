@@ -25,12 +25,17 @@
 	align-items: center;
 }
 
-.source {
+.sources {
 	display: flex;
 	align-items: center;
 }
 
 .date {
+	display: flex;
+	align-items: center;
+}
+
+.publishers {
 	display: flex;
 	align-items: center;
 }
