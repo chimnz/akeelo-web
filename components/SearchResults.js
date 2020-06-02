@@ -1,5 +1,6 @@
 import styles from '../styles/SearchResults.module.css'
 import linkIcon from '../assets/images/iconmonstr-link-2.svg'
+import contributorsIcon from '../assets/images/iconmonstr-user-circle-thin.svg'
 
 function SearchResults(props) {
 	if (props.results) {
@@ -9,8 +10,9 @@ function SearchResults(props) {
 					<div className={styles.title}>
 						{item.title}
 					</div>
-					<div>
-						contributors: {item.contributors}
+					<div className={styles.contributors}>
+						<img src={contributorsIcon} />
+						{item.contributors[0]}
 					</div>
 					<div>
 						type: {item.type}
