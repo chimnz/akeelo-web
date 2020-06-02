@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 function HomePage() {
 	const router = useRouter()
-	let formInput = React.createRef();
+	let formInput = React.createRef()
 
 	function goToSearchPage() {
 		router.push({

@@ -55,14 +55,20 @@ function SearchPage(props) {
 	const [ results, setResults ] = useState()
 
 	useEffect(() => {
-		doSearch(props.urlQueryParams)
+		// if no query parameters, do nothing, else, doSearch then render
+		// prevent page from breaking
+		if (Object.getOwnPropertyNames(props.urlQueryParams).length === 0) {
+			null
+		} else {
+			doSearch(props.urlQueryParams)
 			.then(data => data.hits.hits.map(item => item._source))
 			.then(results => setResults(results))
+		}
 	}, [])
 
 	return (
 		<>
-			<Header />
+			<Header urlQueryParams={props.urlQueryParams} />
 			<SearchResults results={results} />
 		</>
 	)
