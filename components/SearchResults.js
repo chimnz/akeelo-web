@@ -6,6 +6,8 @@ import sourcesIcon from '../assets/images/iconmonstr-database-thin.svg'
 import dateIcon from '../assets/images/iconmonstr-pencil-thin.svg'
 import publishersIcon from '../assets/images/iconmonstr-folder-thin.svg'
 
+import LoadingIndicator from '../components/LoadingIndicator'
+
 function SearchResults(props) {
 	if (props.results) {
 		const results = props.results.map(item => (
@@ -48,8 +50,7 @@ function SearchResults(props) {
 			</div>
 		)
 	} else {
-		const loadingIndicator = <h1>loading...</h1>
-		return loadingIndicator
+		return <LoadingIndicator />
 	}
 }
 
