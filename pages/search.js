@@ -29,6 +29,7 @@ async function doSearch(urlQueryParams) {
 								'dissertation',
 								'preprint',
 								'publication',
+								'registration',
 								'report',
 								'thesis'
 							]
