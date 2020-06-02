@@ -23,7 +23,7 @@ function SearchResults(props) {
 					</a>
 					<div className={styles.contributors}>
 						<img className='inline-icon' src={contributorsIcon} />
-						{item.contributors[0]}
+						{item.contributors}
 					</div>
 					<div className={styles.type}>
 						<img className='inline-icon' src={typeIcon} />

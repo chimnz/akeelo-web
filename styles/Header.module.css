@@ -1,0 +1,13 @@
+.wrapper {
+	background-color: black;
+	display: flex;
+	align-items: center;
+	font-family: LogoFont;
+	font-size: 3rem;
+}
+
+.logo {
+	color: white;
+	font-size: 1em;
+	padding: 0.5em;
+}
