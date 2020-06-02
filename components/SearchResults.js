@@ -10,9 +10,14 @@ function SearchResults(props) {
 		const results = props.results.map(item => (
 			<div className={styles.result}>
 				<div className={styles.info}>
-					<div className={styles.title}>
-						{item.title}
-					</div>
+					<a
+						target='_blank'
+						href={item.identifiers[0]}
+					>
+						<div className={styles.title}>
+							{item.title}
+						</div>
+					</a>
 					<div className={styles.contributors}>
 						<img className='inline-icon' src={contributorsIcon} />
 						{item.contributors[0]}
@@ -29,19 +34,6 @@ function SearchResults(props) {
 						<img className='inline-icon' src={dateIcon} />
 						{item.date_updated}
 					</div>
-				</div>
-				<div className={styles.link}>
-					<a
-						target='_blank'
-						href={item.identifiers[0]}
-					>
-						<div className={styles.innerLink}>
-							<img
-								className={styles.linkIcon}
-								src={linkIcon}
-							/>
-						</div>
-					</a>
 				</div>
 			</div>
 		))
