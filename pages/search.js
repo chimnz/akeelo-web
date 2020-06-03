@@ -61,14 +61,18 @@ function SearchPage(props) {
 			null
 		} else {
 			doSearch(props.urlQueryParams)
-			.then(data => data.hits.hits.map(item => item._source))
-			.then(results => setResults(results))
+				.then(data => data.hits.hits.map(item => item._source))
+				.then(results => setResults(results))
 		}
 	}, [])
 
 	return (
 		<>
-			<Header urlQueryParams={props.urlQueryParams} />
+			<Header
+				urlQueryParams={props.urlQueryParams}
+				doSearch={doSearch}
+				setResults={setResults}
+			/>
 			<SearchResults results={results} />
 		</>
 	)

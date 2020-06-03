@@ -8,15 +8,6 @@ function Header(props) {
 	const router = useRouter()
 	let formInput = React.createRef()
 
-	function goToSearchPage() {
-		router.push({
-			pathname: '/search',
-			query: {
-				q: formInput.current.value
-			}
-		})
-	}
-
 	const [inputValue, setInputValue] = useState(props.urlQueryParams.q)
 
 	return (
@@ -26,7 +17,20 @@ function Header(props) {
 			</Link>
 			<form
 				className={styles.form}
-				onSubmit={goToSearchPage}
+				onSubmit={(event) => {
+					event.preventDefault()  // prevent page refresh
+					props.doSearch({
+						q: inputValue,
+					})
+						.then(data => data.hits.hits.map(item => item._source))
+						.then(results => props.setResults(results))
+					router.push({
+						pathname: '/search',
+						query: {
+							q: inputValue
+						}
+					})
+				}}
 			>
 				<input
 					className={styles.textInput}
