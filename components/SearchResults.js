@@ -6,7 +6,6 @@ import sourcesIcon from '../assets/images/iconmonstr-database-thin.svg'
 import dateIcon from '../assets/images/iconmonstr-pencil-thin.svg'
 import publishersIcon from '../assets/images/iconmonstr-folder-thin.svg'
 
-import LoadingIndicator from '../components/LoadingIndicator'
 import LoadMoreButton from '../components/LoadMoreButton'
 
 function SearchResults(props) {
@@ -56,7 +55,7 @@ function SearchResults(props) {
 			</div>
 		)
 	} else {
-		return <LoadingIndicator />
+		return null
 	}
 }
 
