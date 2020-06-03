@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import Header from '../components/Header'
 import SearchStats from '../components/SearchStats'
 import SearchResults from '../components/SearchResults'
-import LoadMoreButton from '../components/LoadMoreButton'
 import { useState, useEffect } from 'react'
 
 export async function getServerSideProps(context) {
@@ -97,11 +96,10 @@ function SearchPage(props) {
 				setResults={setResults}
 			/>
 			<SearchStats totalResults={totalResults} />
-			<SearchResults results={results} />
-			<LoadMoreButton
+			<SearchResults
+				results={results}
 				params={params}
 				setParams={setParams}
-				results={results}
 			/>
 		</>
 	)

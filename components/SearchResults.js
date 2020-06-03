@@ -7,6 +7,7 @@ import dateIcon from '../assets/images/iconmonstr-pencil-thin.svg'
 import publishersIcon from '../assets/images/iconmonstr-folder-thin.svg'
 
 import LoadingIndicator from '../components/LoadingIndicator'
+import LoadMoreButton from '../components/LoadMoreButton'
 
 function SearchResults(props) {
 	if (props.results.length > 0) {
@@ -47,6 +48,11 @@ function SearchResults(props) {
 		return (
 			<div className={styles.wrapper}>
 				{results}
+				<LoadMoreButton
+					results={results}
+					params={props.params}
+					setParams={props.setParams}
+				/>
 			</div>
 		)
 	} else {
