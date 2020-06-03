@@ -6,7 +6,7 @@ import searchIcon from '../assets/images/iconmonstr-search-thin.svg'
 function Header(props) {
 	let formInput = React.createRef()
 
-	const [inputValue, setInputValue] = useState(props.urlQueryParams.q)
+	const [inputValue, setInputValue] = useState(props.params.q)
 
 	return (
 		<header className={styles.wrapper}>

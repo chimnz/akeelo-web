@@ -80,14 +80,14 @@ function SearchPage(props) {
 	return (
 		<>
 			<Header
-				urlQueryParams={params}
+				params={params}
 				setParams={setParams}
 				setResults={setResults}
 			/>
 			<SearchStats totalResults={totalResults} />
 			<SearchResults results={results} />
 			<LoadMoreButton
-				urlQueryParams={params}
+				params={params}
 				setParams={setParams}
 				results={results}
 			/>

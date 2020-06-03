@@ -15,7 +15,7 @@ function LoadMoreButton(props) {
 			style={buttonStyle}
 			onClick={() => {
 				props.setParams({
-					...props.urlQueryParams,
+					...props.params,
 					offset: props.results.length + maxOffset
 				})
 			}}
