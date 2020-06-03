@@ -10,7 +10,7 @@ import LoadMoreButton from '../components/LoadMoreButton'
 
 function SearchResults(props) {
 	if (props.results.length > 0) {
-		const results = props.results.map(item => {
+		const resultsDivs = props.results.map(item => {
 			const defaultText = 'n/a'
 			const dateText = item.date_updated ? new Date(item.date_updated).toDateString() : defaultText
 			let contributorsText
@@ -58,12 +58,14 @@ function SearchResults(props) {
 		})
 		return (
 			<div className={styles.wrapper}>
-				{results}
-				<LoadMoreButton
-					results={results}
-					params={props.params}
-					setParams={props.setParams}
-				/>
+				<div className={styles.resultsWrapper}>
+					{resultsDivs}
+					<LoadMoreButton
+						results={props.results}
+						params={props.params}
+						setParams={props.setParams}
+					/>
+				</div>
 			</div>
 		)
 	} else {
