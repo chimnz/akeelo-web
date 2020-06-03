@@ -4,19 +4,26 @@
 
 .result {
 	line-height: 30px;
-	font-size: 1.75rem;
+	font-size: 1em;
 	font-family: SearchFontLight;
 	background-color: white;
 	border-bottom: 1.5px dashed black;
 	padding: 1em;
 }
 
+.info {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 1.6em;
+}
+
 .info > div {
 	display: flex;
 	align-items: center;
+	margin-right: 1em;
 }
 
 .title {
-	font-size: 2.5rem;
+	font-size: 2.5em;
 	font-family: LogoFont;
 }
