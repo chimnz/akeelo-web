@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styles from '../styles/Header.module.css'
 import searchIcon from '../assets/images/iconmonstr-search-thin.svg'
 
 function Header(props) {
-	const router = useRouter()
 	let formInput = React.createRef()
 
 	const [inputValue, setInputValue] = useState(props.urlQueryParams.q)
@@ -19,6 +17,7 @@ function Header(props) {
 				className={styles.form}
 				onSubmit={(event) => {
 					event.preventDefault()  // prevent page refresh
+					props.setResults([])  // clear previous search results
 					props.setParams({q: inputValue})
 				}}
 			>

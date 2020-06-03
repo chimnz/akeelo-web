@@ -9,7 +9,7 @@ import publishersIcon from '../assets/images/iconmonstr-folder-thin.svg'
 import LoadingIndicator from '../components/LoadingIndicator'
 
 function SearchResults(props) {
-	if (props.results) {
+	if (props.results.length > 0) {
 		const results = props.results.map(item => (
 			<div className={styles.result}>
 				<a

@@ -1,6 +1,7 @@
 import Header from '../components/Header'
 import SearchStats from '../components/SearchStats'
 import SearchResults from '../components/SearchResults'
+import LoadMoreButton from '../components/LoadMoreButton'
 import { useState, useEffect } from 'react'
 
 export async function getServerSideProps(context) {
@@ -55,7 +56,7 @@ async function doSearch(urlQueryParams) {
 function SearchPage(props) {
 	const [ params, setParams ] = useState(props.urlQueryParams)
 	const [ totalResults, setTotalResults ] = useState()  // TOTAL number of hits
-	const [ results, setResults ] = useState()
+	const [ results, setResults ] = useState([])
 
 	function updatePage() {
 		doSearch(params)
@@ -63,14 +64,14 @@ function SearchPage(props) {
 				setTotalResults(data.hits.total.toLocaleString())  // update results stats
 				return data.hits.hits.map(item => item._source)  // return search results
 			})
-			.then(results => setResults(results))  // update search results
+			.then(newResults => setResults([...results, ...newResults]))  // update search results
 	}
 
 	useEffect(() => {
 		// if no query parameters, do nothing, else, perform search then render
 		// prevent page from breaking
 		if (Object.getOwnPropertyNames(params).length === 0) {
-			null
+			return
 		} else {
 			updatePage()
 		}
@@ -81,9 +82,15 @@ function SearchPage(props) {
 			<Header
 				urlQueryParams={params}
 				setParams={setParams}
+				setResults={setResults}
 			/>
 			<SearchStats totalResults={totalResults} />
 			<SearchResults results={results} />
+			<LoadMoreButton
+				urlQueryParams={params}
+				setParams={setParams}
+				results={results}
+			/>
 		</>
 	)
 }
