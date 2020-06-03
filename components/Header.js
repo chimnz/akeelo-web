@@ -19,20 +19,7 @@ function Header(props) {
 				className={styles.form}
 				onSubmit={(event) => {
 					event.preventDefault()  // prevent page refresh
-					props.doSearch({
-						q: inputValue,
-					})
-						.then(data => {
-							props.setTotalResults(data.hits.total.toLocaleString())
-							return data.hits.hits.map(item => item._source)
-						})
-						.then(results => props.setResults(results))
-					router.push({
-						pathname: '/search',
-						query: {
-							q: inputValue
-						}
-					})
+					props.setParams({q: inputValue})
 				}}
 			>
 				<input

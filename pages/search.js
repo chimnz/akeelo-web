@@ -53,31 +53,34 @@ async function doSearch(urlQueryParams) {
 }
 
 function SearchPage(props) {
+	const [ params, setParams ] = useState(props.urlQueryParams)
 	const [ totalResults, setTotalResults ] = useState()  // TOTAL number of hits
 	const [ results, setResults ] = useState()
 
+	function updatePage() {
+		doSearch(params)
+			.then(data => {
+				setTotalResults(data.hits.total.toLocaleString())  // update results stats
+				return data.hits.hits.map(item => item._source)  // return search results
+			})
+			.then(results => setResults(results))  // update search results
+	}
+
 	useEffect(() => {
-		// if no query parameters, do nothing, else, doSearch then render
+		// if no query parameters, do nothing, else, perform search then render
 		// prevent page from breaking
-		if (Object.getOwnPropertyNames(props.urlQueryParams).length === 0) {
+		if (Object.getOwnPropertyNames(params).length === 0) {
 			null
 		} else {
-			doSearch(props.urlQueryParams)
-				.then(data => {
-					setTotalResults(data.hits.total.toLocaleString())
-					return data.hits.hits.map(item => item._source)
-				})
-				.then(results => setResults(results))
+			updatePage()
 		}
-	}, [])
+	}, [params])
 
 	return (
 		<>
 			<Header
-				urlQueryParams={props.urlQueryParams}
-				doSearch={doSearch}
-				setResults={setResults}
-				setTotalResults={setTotalResults}
+				urlQueryParams={params}
+				setParams={setParams}
 			/>
 			<SearchStats totalResults={totalResults} />
 			<SearchResults results={results} />
