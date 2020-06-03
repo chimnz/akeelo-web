@@ -21,23 +21,23 @@ function SearchResults(props) {
 							{item.title}
 						</div>
 					</a>
-					<div className={styles.contributors}>
+					<div>
 						<img className='inline-icon' src={contributorsIcon} />
 						{item.contributors}
 					</div>
-					<div className={styles.type}>
+					<div>
 						<img className='inline-icon' src={typeIcon} />
 						{item.type}
 					</div>
-					<div className={styles.sources}>
+					<div>
 						<img className='inline-icon' src={sourcesIcon} />
 						{item.sources}
 					</div>
-					<div className={styles.publishers}>
+					<div>
 						<img className='inline-icon' src={publishersIcon} />
 						{item.publishers}
 					</div>
-					<div className={styles.date}>
+					<div>
 						<img className='inline-icon' src={dateIcon} />
 						{item.date_updated}
 					</div>

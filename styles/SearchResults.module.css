@@ -15,27 +15,7 @@
 	padding: 1em;
 }
 
-.contributors {
-	display: flex;
-	align-items: center;
-}
-
-.type {
-	display: flex;
-	align-items: center;
-}
-
-.sources {
-	display: flex;
-	align-items: center;
-}
-
-.date {
-	display: flex;
-	align-items: center;
-}
-
-.publishers {
+.info > div {
 	display: flex;
 	align-items: center;
 }
