@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styles from '../styles/Header.module.css'
+import searchIcon from '../assets/images/iconmonstr-search-thin.svg'
 
 function Header(props) {
 	const router = useRouter()
@@ -35,6 +36,11 @@ function Header(props) {
 					onChange={() => {setInputValue(formInput.current.value)}}
 					value={inputValue}
 				/>
+				<button
+					className={styles.submitButton}
+				>
+					<img src={searchIcon} />
+				</button>
 			</form>
 		</header>
 	)

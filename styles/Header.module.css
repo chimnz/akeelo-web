@@ -16,11 +16,12 @@
 }
 
 .form {
-	height: 100%;
 	color: white;
 	width: 50%;
 	display: flex;
 	align-items: center;
+	height: 4rem;
+	margin-right: 0.25em;
 }
 
 .textInput {
@@ -32,4 +33,11 @@
 	font-size: 0.65em;
 	font-family: SearchFontLight;
 	width: 100%;
+	height: 100%;
+}
+
+.submitButton {
+	background-color: rgb(45, 45, 45);
+	border: none;
+	height: 100%;
 }
