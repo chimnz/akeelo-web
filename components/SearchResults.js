@@ -12,15 +12,15 @@ function SearchResults(props) {
 	if (props.results) {
 		const results = props.results.map(item => (
 			<div className={styles.result}>
+				<a
+					target='_blank'
+					href={item.identifiers[0]}
+				>
+					<div className={styles.title}>
+						{item.title}
+					</div>
+				</a>
 				<div className={styles.info}>
-					<a
-						target='_blank'
-						href={item.identifiers[0]}
-					>
-						<div className={styles.title}>
-							{item.title}
-						</div>
-					</a>
 					<div>
 						<img className='inline-icon' src={contributorsIcon} />
 						{item.contributors}

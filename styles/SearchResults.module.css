@@ -8,10 +8,6 @@
 	font-family: SearchFontLight;
 	background-color: white;
 	border-bottom: 1.5px dashed black;
-	display: flex;
-}
-
-.info {
 	padding: 1em;
 }
 
