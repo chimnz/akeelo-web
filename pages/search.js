@@ -54,6 +54,12 @@ async function doSearch(urlQueryParams) {
 	return data
 }
 
+function getEncodedParams(params) {
+	let encoded = {}
+	Object.keys(params).forEach(k => encoded[k] = encodeURI(params[k]))
+	return encoded
+}
+
 function SearchPage(props) {
 	const [ params, setParams ] = useState(props.urlQueryParams)
 	const [ totalResults, setTotalResults ] = useState()  // TOTAL number of hits
@@ -68,7 +74,9 @@ function SearchPage(props) {
 				return data.hits.hits.map(item => item._source)  // return search results
 			})
 			.then(newResults => setResults([...results, ...newResults]))  // update search results
-		router.push({pathname: '/search', query: params})
+
+		const encodedParams = getEncodedParams(params)
+		router.push({pathname: '/search', query: encodedParams})
 	}
 
 	useEffect(() => {
