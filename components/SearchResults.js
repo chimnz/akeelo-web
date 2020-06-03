@@ -10,7 +10,18 @@ import LoadMoreButton from '../components/LoadMoreButton'
 
 function SearchResults(props) {
 	if (props.results.length > 0) {
-		const results = props.results.map(item => (
+		const results = props.results.map(item => {
+			const defaultText = 'n/a'
+			const dateText = item.date_updated ? new Date(item.date_updated).toDateString() : defaultText
+			let contributorsText
+			if (item.contributors) {
+				const joinedContributors = item.contributors.slice(0, 5).join(', ')  // maximum of five names before ellipsis
+				contributorsText = item.contributors.length > 5 ? joinedContributors + ' et al.' : joinedContributors
+			} else {
+				contributorsText = defaultText
+			}
+
+			return (
 			<div className={styles.result}>
 				<a
 					target='_blank'
@@ -23,7 +34,7 @@ function SearchResults(props) {
 				<div className={styles.info}>
 					<div>
 						<img className='inline-icon' src={contributorsIcon} />
-						{item.contributors}
+						{contributorsText}
 					</div>
 					<div>
 						<img className='inline-icon' src={typeIcon} />
@@ -35,15 +46,16 @@ function SearchResults(props) {
 					</div>
 					<div>
 						<img className='inline-icon' src={publishersIcon} />
-						{item.publishers}
+						{item.publishers ? item.publishers : defaultText}
 					</div>
 					<div>
 						<img className='inline-icon' src={dateIcon} />
-						{new Date(item.date_updated).toDateString()}
+						{dateText}
 					</div>
 				</div>
 			</div>
-		))
+			)
+		})
 		return (
 			<div className={styles.wrapper}>
 				{results}
