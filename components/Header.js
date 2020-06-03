@@ -22,7 +22,10 @@ function Header(props) {
 					props.doSearch({
 						q: inputValue,
 					})
-						.then(data => data.hits.hits.map(item => item._source))
+						.then(data => {
+							props.setTotalResults(data.hits.total.toLocaleString())
+							return data.hits.hits.map(item => item._source)
+						})
 						.then(results => props.setResults(results))
 					router.push({
 						pathname: '/search',

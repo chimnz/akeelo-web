@@ -1,4 +1,5 @@
 import Header from '../components/Header'
+import SearchStats from '../components/SearchStats'
 import SearchResults from '../components/SearchResults'
 import { useState, useEffect } from 'react'
 
@@ -52,6 +53,7 @@ async function doSearch(urlQueryParams) {
 }
 
 function SearchPage(props) {
+	const [ totalResults, setTotalResults ] = useState()  // TOTAL number of hits
 	const [ results, setResults ] = useState()
 
 	useEffect(() => {
@@ -61,7 +63,10 @@ function SearchPage(props) {
 			null
 		} else {
 			doSearch(props.urlQueryParams)
-				.then(data => data.hits.hits.map(item => item._source))
+				.then(data => {
+					setTotalResults(data.hits.total.toLocaleString())
+					return data.hits.hits.map(item => item._source)
+				})
 				.then(results => setResults(results))
 		}
 	}, [])
@@ -72,7 +77,9 @@ function SearchPage(props) {
 				urlQueryParams={props.urlQueryParams}
 				doSearch={doSearch}
 				setResults={setResults}
+				setTotalResults={setTotalResults}
 			/>
+			<SearchStats totalResults={totalResults} />
 			<SearchResults results={results} />
 		</>
 	)
