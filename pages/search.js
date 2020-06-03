@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import Header from '../components/Header'
 import SearchStats from '../components/SearchStats'
 import SearchResults from '../components/SearchResults'
@@ -58,6 +59,8 @@ function SearchPage(props) {
 	const [ totalResults, setTotalResults ] = useState()  // TOTAL number of hits
 	const [ results, setResults ] = useState([])
 
+	const router = useRouter()
+
 	function updatePage() {
 		doSearch(params)
 			.then(data => {
@@ -65,6 +68,7 @@ function SearchPage(props) {
 				return data.hits.hits.map(item => item._source)  // return search results
 			})
 			.then(newResults => setResults([...results, ...newResults]))  // update search results
+		router.push({pathname: '/search', query: params})
 	}
 
 	useEffect(() => {

@@ -18,7 +18,8 @@ function Header(props) {
 				onSubmit={(event) => {
 					event.preventDefault()  // prevent page refresh
 					props.setResults([])  // clear previous search results
-					props.setParams({q: inputValue})
+					const newParams = {q: inputValue}
+					props.setParams(newParams)
 				}}
 			>
 				<input
