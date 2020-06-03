@@ -1,5 +1,6 @@
 import styles from '../styles/HomePage.module.css'
 import { useRouter } from 'next/router'
+import searchIcon from '../assets/images/iconmonstr-search-thin.svg'
 
 function HomePage() {
 	const router = useRouter()
@@ -27,6 +28,11 @@ function HomePage() {
 					type='text'
 					placeholder='search for science'
 				/>
+				<button
+					className={styles.submitButton}
+				>
+					<img src={searchIcon} />
+				</button>
 			</form>
 		</div>
 	)
