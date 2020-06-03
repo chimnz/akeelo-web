@@ -39,7 +39,7 @@ function SearchResults(props) {
 					</div>
 					<div>
 						<img className='inline-icon' src={dateIcon} />
-						{item.date_updated}
+						{new Date(item.date_updated).toDateString()}
 					</div>
 				</div>
 			</div>
