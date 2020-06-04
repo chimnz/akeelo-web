@@ -59,8 +59,14 @@ function getEncodedParams(params) {
 	return encoded
 }
 
+function getDecodedParams(params) {
+	let decoded = {}
+	Object.keys(params).forEach(k => decoded[k] = decodeURI(params[k]))
+	return decoded
+}
+
 function SearchPage(props) {
-	const [ params, setParams ] = useState(props.urlQueryParams)
+	const [ params, setParams ] = useState(getDecodedParams(props.urlQueryParams))
 	const [ totalResults, setTotalResults ] = useState()  // TOTAL number of hits
 	const [ results, setResults ] = useState([])
 
