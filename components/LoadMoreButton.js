@@ -1,10 +1,15 @@
+import loadMoreIcon from '../assets/images/iconmonstr-arrow-down-thin.svg'
+
 const buttonStyle = {
 	width: '100%',
-	backgroundColor: 'silver',
-	color: 'white',
+	backgroundColor: 'inherit',
 	height: '10rem',
 	border: 'none',
 	fontSize: '2rem'
+}
+
+const imgStyle = {
+	width: '1.25em'
 }
 
 const maxOffset = 10
@@ -22,7 +27,10 @@ function LoadMoreButton(props) {
 			onClick={loadMoreResults}
 			onMouseOver={loadMoreResults}
 		>
-			{'load more'}
+			<img
+				style={imgStyle}
+				src={loadMoreIcon}
+			/>
 		</button>
 	)
 }
