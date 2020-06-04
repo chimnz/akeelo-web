@@ -10,6 +10,7 @@ import LoadMoreButton from '../components/LoadMoreButton'
 
 function SearchResults(props) {
 	if (props.results.length > 0) {
+		let keyNum = 0
 		const resultsDivs = props.results.map(item => {
 			const defaultText = 'n/a'
 			const dateText = item.date_updated ? new Date(item.date_updated).toDateString() : defaultText
@@ -22,7 +23,7 @@ function SearchResults(props) {
 			}
 
 			return (
-			<div className={styles.result}>
+			<div className={styles.result} key={keyNum++}>
 				<a
 					target='_blank'
 					href={item.identifiers[0]}
