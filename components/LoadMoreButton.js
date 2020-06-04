@@ -10,15 +10,17 @@ const buttonStyle = {
 const maxOffset = 10
 
 function LoadMoreButton(props) {
+	function loadMoreResults() {
+		props.setParams({
+			...props.params,
+			offset: props.results.length + maxOffset
+		})
+	}
 	return (
 		<button
 			style={buttonStyle}
-			onClick={() => {
-				props.setParams({
-					...props.params,
-					offset: props.results.length + maxOffset
-				})
-			}}
+			onClick={loadMoreResults}
+			onMouseOver={loadMoreResults}
 		>
 			{'load more'}
 		</button>
