@@ -9,11 +9,9 @@
 	font-family: HeadingFont;
 	src: url(../assets/fonts/Metropolis/Metropolis-Bold.otf);
 }
-
-/* https://github.com/adobe-fonts/source-sans-pro */
 @font-face {
 	font-family: RegularFont;
-	src: url(../assets/fonts/SourceSansPro/SourceSansPro-Regular.otf);
+	src: url(../assets/fonts/Metropolis/Metropolis-Regular.otf);
 }
 
 /* https://github.com/floriankarsten/space-grotesk */
