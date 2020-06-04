@@ -18,10 +18,10 @@
 
 /* https://github.com/floriankarsten/space-grotesk */
 @font-face {
-	font-family: SearchFont;
+	font-family: CleanFontThick;
 	src: url(../assets/fonts/SpaceGrotesk/SpaceGrotesk-Medium.otf);
 }
 @font-face {
-	font-family: SearchFontLight;
+	font-family: CleanFont;
 	src: url(../assets/fonts/SpaceGrotesk/SpaceGrotesk-Light.otf);
 }
