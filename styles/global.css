@@ -7,6 +7,15 @@ body {
 	font-family: RegularFont;
 }
 
+main {
+	display: flex;
+	justify-content: center;
+}
+
+.main-inner {
+	max-width: 800px;
+}
+
 a {
 	/* remove link styling */
 	color: inherit;

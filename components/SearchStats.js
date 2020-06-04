@@ -1,6 +1,8 @@
 const wrapperStyle = {
 	display: 'flex',
 	fontSize: '1.75rem',
+	marginTop: '2rem',
+	maxWidth: '800px'
 }
 
 const textStyle = {

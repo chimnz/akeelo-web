@@ -101,12 +101,16 @@ function SearchPage(props) {
 				setParams={setParams}
 				setResults={setResults}
 			/>
-			<SearchStats totalResults={totalResults} />
-			<SearchResults
-				results={results}
-				params={params}
-				setParams={setParams}
-			/>
+			<main>
+				<div class='main-inner'>
+					<SearchStats totalResults={totalResults} />
+					<SearchResults
+						results={results}
+						params={params}
+						setParams={setParams}
+					/>
+				</div>
+			</main>
 		</>
 	)
 }
