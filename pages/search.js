@@ -102,7 +102,7 @@ function SearchPage(props) {
 				setResults={setResults}
 			/>
 			<main>
-				<div class='main-inner'>
+				<div className='main-inner'>
 					<SearchStats totalResults={totalResults} />
 					<SearchResults
 						results={results}

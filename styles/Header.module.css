@@ -1,10 +1,14 @@
 .wrapper {
-	background-color: black;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	font-family: LogoFont;
 	font-size: 3rem;
+	width: 100%;
+	max-width: 800px;
+	box-sizing: border-box;
+	padding-left: 2rem;
+	padding-right: 2rem;
 }
 
 .logo {
@@ -12,7 +16,6 @@
 	font-size: 1.25em;
 	padding-top: 0.25em;
 	padding-bottom: 0.25em;
-	margin-left: 0.5em;
 }
 
 .form {
@@ -20,7 +23,6 @@
 	display: flex;
 	align-items: center;
 	height: 4rem;
-	margin-right: 0.5em;
 }
 
 .textInput {

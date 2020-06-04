@@ -1,12 +1,10 @@
 const wrapperStyle = {
 	display: 'flex',
 	fontSize: '1.75rem',
+	maxWidth: '800px',
+	justifyContent: 'flex-end',
 	marginTop: '2rem',
-	maxWidth: '800px'
-}
-
-const textStyle = {
-	margin: 'auto'
+	paddingRight: '2rem'
 }
 
 function SearchStats(props) {
@@ -14,7 +12,7 @@ function SearchStats(props) {
 		const statsMsg = `${props.totalResults} results`
 		return (
 			<div style={wrapperStyle}>
-				<div style={textStyle}>{statsMsg}</div>
+				<div>{statsMsg}</div>
 			</div>
 		)
 	} else {
