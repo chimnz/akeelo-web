@@ -28,9 +28,7 @@ function SearchResults(props) {
 					target='_blank'
 					href={item.identifiers[0]}
 				>
-					<div className={styles.title}>
-						{item.title}
-					</div>
+					<span className={styles.title}>{item.title}</span>
 				</a>
 				<div className={styles.info}>
 					<div>
