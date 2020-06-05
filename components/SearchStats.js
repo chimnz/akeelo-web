@@ -3,8 +3,8 @@ const wrapperStyle = {
 	fontSize: '1.75rem',
 	maxWidth: '800px',
 	justifyContent: 'flex-end',
-	marginTop: '2rem',
-	paddingRight: '2rem'
+	marginTop: '1.5rem',
+	marginBottom: '1.5rem',
 }
 
 function SearchStats(props) {
