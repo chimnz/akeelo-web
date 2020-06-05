@@ -5,6 +5,7 @@ const wrapperStyle = {
 	justifyContent: 'flex-end',
 	marginTop: '1.5rem',
 	marginBottom: '1.5rem',
+	marginRight: '1.25rem'
 }
 
 function SearchStats(props) {
