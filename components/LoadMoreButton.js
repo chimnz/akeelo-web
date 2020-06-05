@@ -19,8 +19,9 @@ const maxOffset = 10
 function LoadMoreButton(props) {
 	const [ isLoading, setIsLoading ] = useState(false)
 
+	function flipLoadingState() { setIsLoading(!isLoading) }
+
 	function loadMoreResults() {
-		setIsLoading(!isLoading)
 		props.setParams({
 			...props.params,
 			offset: props.results.length + maxOffset
@@ -30,8 +31,11 @@ function LoadMoreButton(props) {
 		<button
 			style={buttonStyle}
 			onClick={loadMoreResults}
-			onMouseEnter={loadMoreResults}
-			onMouseLeave={loadMoreResults}
+			onMouseEnter={() => {
+				loadMoreResults()
+				flipLoadingState()
+			}}
+			onMouseLeave={flipLoadingState}
 		>
 			<img
 				style={imgStyle}
