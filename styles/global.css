@@ -15,11 +15,13 @@ header {
 }
 
 main {
+	width: 100%;
 	display: flex;
 	justify-content: center;
 }
 
 .main-inner {
+	width: 100%;
 	max-width: 800px;
 }
 
@@ -32,6 +34,7 @@ a {
 a:hover {
 	text-decoration: underline;
 	color: olivedrab;
+	cursor: pointer;
 }
 
 button:hover {

@@ -16,25 +16,35 @@ function HomePage() {
 	}
 
 	return (
-		<div className={styles.wrapper}>
-			<div className={styles.logo}>akeelo</div>
-			<form
-				className={styles.bigSearch}
-				onSubmit={goToSearchPage}
-			>
-				<input
-					className={styles.textInput}
-					ref={formInput}
-					type='text'
-					placeholder='search for science'
-				/>
-				<button
-					className={styles.submitButton}
-				>
-					<img src={searchIcon} />
-				</button>
-			</form>
-		</div>
+		<main>
+			<div className='main-inner'>
+				<div className={styles.spacer}></div>
+				<div className={styles.contentWrapper}>
+					<div className={styles.searchWrapper}>
+						<div className={styles.logo}>akeelo</div>
+						<form
+							className={styles.form}
+							onSubmit={goToSearchPage}
+						>
+							<input
+								className={styles.textInput}
+								ref={formInput}
+								type='text'
+								placeholder='search for science'
+							/>
+							<button
+								className={styles.submitButton}
+							>
+								<img src={searchIcon} />
+							</button>
+						</form>
+					</div>
+					<div className='extra'>
+						powered by
+					</div>
+				</div>
+			</div>
+		</main>
 	)
 }
 
