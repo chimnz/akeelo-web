@@ -14,7 +14,8 @@ function HomePage() {
 	const router = useRouter()
 	let formInput = React.createRef()
 
-	function goToSearchPage() {
+	function goToSearchPage(e) {
+		e.preventDefault()
 		router.push({
 			pathname: '/search',
 			query: {
