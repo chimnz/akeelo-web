@@ -4,13 +4,6 @@ import SearchStats from '../components/SearchStats'
 import SearchResults from '../components/SearchResults'
 import { useState, useEffect } from 'react'
 
-export async function getServerSideProps(context) {
-	const urlQueryParams = context.query
-	return {
-		props: {urlQueryParams: urlQueryParams} // will be passed to the page component as props
-	}
-}
-
 async function doSearch(urlQueryParams) {
 	const {q, offset} = urlQueryParams
 	const sanitizedQuery = q.replace(/\W/g, '')
@@ -67,11 +60,12 @@ function getDecodedParams(params) {
 }
 
 function SearchPage(props) {
-	const [ params, setParams ] = useState(getDecodedParams(props.urlQueryParams))
+	const router = useRouter()
+	const decodedQueryParams = getDecodedParams(router.query)
+
+	const [ params, setParams ] = useState(decodedQueryParams)
 	const [ totalResults, setTotalResults ] = useState()  // TOTAL number of hits
 	const [ results, setResults ] = useState([])
-
-	const router = useRouter()
 
 	function updatePage() {
 		doSearch(params)
