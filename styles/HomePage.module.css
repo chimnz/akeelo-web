@@ -1,5 +1,25 @@
-.spacer {
+.nav {
+	display: flex;
+	justify-content: flex-end;
 	height: 30vh;
+}
+
+.linkWrapper {
+	display: flex;
+	padding: 1rem;
+}
+
+.nav  a {
+	margin-left: 1rem;
+}
+
+.nav img {
+	display: block;
+	width: 4rem;
+}
+
+.main {
+	height: 70vh;
 }
 
 .contentWrapper {
@@ -7,7 +27,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	width: 100%;
-	height: 70vh;
+	height: 100%;
 }
 
 .searchWrapper {
@@ -60,5 +80,6 @@
 }
 
 .attribution img {
-	width: 4em;
+	display: block;
+	width: 3.5em;
 }
