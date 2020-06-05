@@ -1,8 +1,9 @@
-import '../styles/global.css'
-
 import App from 'next/app'
 import Head from 'next/head'
 import React from 'react'
+
+import '../styles/global.css'
+import favicon from '../assets/images/favicon/favicon.ico'
 
 // https://github.com/vercel/next.js/blob/master/errors/no-document-title.md
 export default class MyApp extends App {
@@ -22,7 +23,8 @@ export default class MyApp extends App {
     return (
       <>
         <Head>
-			<title>akeelo - search for science</title>
+			    <title>akeelo - search for science</title>
+          <link rel='shortcut icon' href={favicon} />
         </Head>
         <Component {...pageProps} />
       </>
