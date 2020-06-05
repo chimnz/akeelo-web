@@ -26,6 +26,13 @@ main {
 	max-width: 800px;
 }
 
+form > * {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+	appearance: none;
+	border-radius: 0;
+}
+
 input:focus {
 	outline-color: olivedrab;
 	margin-right: 2px;
@@ -41,6 +48,10 @@ a:hover {
 	text-decoration: underline;
 	color: olivedrab;
 	cursor: pointer;
+}
+
+button {
+	margin: 0;
 }
 
 button:hover {
