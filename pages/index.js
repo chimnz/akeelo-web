@@ -1,6 +1,9 @@
 import styles from '../styles/HomePage.module.css'
 import { useRouter } from 'next/router'
 import searchIcon from '../assets/images/iconmonstr-search-thin.svg'
+import osfShareLogo from '../assets/images/osf-share-logo.png'
+
+const apiDocsUrl = 'https://share-research.readthedocs.io'
 
 function HomePage() {
 	const router = useRouter()
@@ -39,8 +42,11 @@ function HomePage() {
 							</button>
 						</form>
 					</div>
-					<div className='extra'>
+					<div className={styles.attribution}>
 						powered by
+						<a href={apiDocsUrl}>
+							<img src={osfShareLogo} />
+						</a>
 					</div>
 				</div>
 			</div>

@@ -51,6 +51,14 @@
 	height: 100%;
 }
 
-.extra {
+.attribution {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	font-family: CleanFont;
+}
 
+.attribution img {
+	width: 4em;
 }
