@@ -1,4 +1,6 @@
 import loadMoreIcon from '../assets/images/iconmonstr-arrow-down-thin.svg'
+import nowLoadingIcon from '../assets/images/iconmonstr-menu-dot-horizontal-thin.svg'
+import { useState } from 'react'
 
 const buttonStyle = {
 	width: '100%',
@@ -15,7 +17,10 @@ const imgStyle = {
 const maxOffset = 10
 
 function LoadMoreButton(props) {
+	const [ isLoading, setIsLoading ] = useState(false)
+
 	function loadMoreResults() {
+		setIsLoading(!isLoading)
 		props.setParams({
 			...props.params,
 			offset: props.results.length + maxOffset
@@ -25,11 +30,12 @@ function LoadMoreButton(props) {
 		<button
 			style={buttonStyle}
 			onClick={loadMoreResults}
-			onMouseOver={loadMoreResults}
+			onMouseEnter={loadMoreResults}
+			onMouseLeave={loadMoreResults}
 		>
 			<img
 				style={imgStyle}
-				src={loadMoreIcon}
+				src={isLoading ? nowLoadingIcon : loadMoreIcon}
 			/>
 		</button>
 	)
