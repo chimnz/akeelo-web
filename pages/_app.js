@@ -23,7 +23,7 @@ export default class MyApp extends App {
     return (
       <>
         <Head>
-			    <title>akeelo - search for science</title>
+          <title>Akeelo - The Simple Science Search Engine</title>
           <link rel='shortcut icon' href={favicon} />
         </Head>
         <Component {...pageProps} />
