@@ -13,13 +13,14 @@ export async function getServerSideProps(context) {
 
 async function doSearch(urlQueryParams) {
 	const {q, offset} = urlQueryParams
+	const sanitizedQuery = q.replace(/\W/g, '')
 	const endpoint = 'https://share.osf.io/api/v2/search/creativeworks/_search'
 	const payload = {
 		'query': {
 			'bool': {
 				'must': {
 					'query_string': {
-						'query': q
+						'query': sanitizedQuery
 					},
 				},
 				'filter': [
