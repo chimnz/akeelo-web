@@ -9,67 +9,63 @@ import publishersIcon from '../assets/images/iconmonstr-folder-thin.svg'
 import LoadMoreButton from '../components/LoadMoreButton'
 
 function SearchResults(props) {
-	if (props.results.length > 0) {
-		let keyNum = 0
-		const resultsDivs = props.results.map(item => {
-			const defaultText = 'n/a'
-			const dateText = item.date_updated ? new Date(item.date_updated).toDateString() : defaultText
-			let contributorsText
-			if (item.contributors) {
-				const joinedContributors = item.contributors.slice(0, 5).join(', ')  // maximum of five names before ellipsis
-				contributorsText = item.contributors.length > 5 ? joinedContributors + ' et al.' : joinedContributors
-			} else {
-				contributorsText = defaultText
-			}
+	let keyNum = 0
+	const resultsDivs = props.results.map(item => {
+		const defaultText = 'n/a'
+		const dateText = item.date_updated ? new Date(item.date_updated).toDateString() : defaultText
+		let contributorsText
+		if (item.contributors) {
+			const joinedContributors = item.contributors.slice(0, 5).join(', ')  // maximum of five names before ellipsis
+			contributorsText = item.contributors.length > 5 ? joinedContributors + ' et al.' : joinedContributors
+		} else {
+			contributorsText = defaultText
+		}
 
-			return (
-			<div className={styles.result} key={keyNum++}>
-				<a
-					target='_blank'
-					href={item.identifiers[0]}
-				>
-					<span className={styles.title}>{item.title}</span>
-				</a>
-				<div className={styles.info}>
-					<div>
-						<img className='inline-icon' src={contributorsIcon} />
-						{contributorsText}
-					</div>
-					<div>
-						<img className='inline-icon' src={typeIcon} />
-						{item.type}
-					</div>
-					<div>
-						<img className='inline-icon' src={sourcesIcon} />
-						{item.sources}
-					</div>
-					<div>
-						<img className='inline-icon' src={publishersIcon} />
-						{item.publishers ? item.publishers : defaultText}
-					</div>
-					<div>
-						<img className='inline-icon' src={dateIcon} />
-						{dateText}
-					</div>
-				</div>
-			</div>
-			)
-		})
 		return (
-			<div className={styles.wrapper}>
-				<div className={styles.resultsWrapper}>
-					{resultsDivs}
-					<LoadMoreButton
-						results={props.results}
-						params={props.params}
-						setParams={props.setParams}
-					/>
+		<div className={styles.result} key={keyNum++}>
+			<a
+				target='_blank'
+				href={item.identifiers[0]}
+			>
+				<span className={styles.title}>{item.title}</span>
+			</a>
+			<div className={styles.info}>
+				<div>
+					<img className='inline-icon' src={contributorsIcon} />
+					{contributorsText}
+				</div>
+				<div>
+					<img className='inline-icon' src={typeIcon} />
+					{item.type}
+				</div>
+				<div>
+					<img className='inline-icon' src={sourcesIcon} />
+					{item.sources}
+				</div>
+				<div>
+					<img className='inline-icon' src={publishersIcon} />
+					{item.publishers ? item.publishers : defaultText}
+				</div>
+				<div>
+					<img className='inline-icon' src={dateIcon} />
+					{dateText}
 				</div>
 			</div>
+		</div>
 		)
-	} else {
-		return null
-	}
+	})
+	return (
+		<div className={styles.wrapper}>
+			<div className={styles.resultsWrapper}>
+				{resultsDivs}
+				<LoadMoreButton
+					results={props.results}
+					params={props.params}
+					setParams={props.setParams}
+				/>
+			</div>
+		</div>
+	)
 }
 
 export default SearchResults
