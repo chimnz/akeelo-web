@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 
 async function doSearch(urlQueryParams) {
 	const {q, offset} = urlQueryParams
-	const sanitizedQuery = q.replace(/\W/g, '')
+	const sanitizedQuery = q.replace(/[^\w\s]/gi, '')  // remove non-alphanumeric characters except for spaces
 	const endpoint = 'https://share.osf.io/api/v2/search/creativeworks/_search'
 	const payload = {
 		'query': {
