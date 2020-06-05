@@ -26,6 +26,11 @@ main {
 	max-width: 800px;
 }
 
+input:focus {
+	outline-color: olivedrab;
+	margin-right: 2px;
+}
+
 a {
 	/* remove link styling */
 	color: inherit;
