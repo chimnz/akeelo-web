@@ -1,4 +1,6 @@
 import styles from '../styles/HomePage.module.css'
+
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import searchIcon from '../assets/images/iconmonstr-search-thin.svg'
 
@@ -6,9 +8,9 @@ import osfShareLogo from '../assets/images/osf-share-logo.png'
 import githubIcon from '../assets/images/iconmonstr-github-1.svg'
 import personalWebsiteLogo from '../assets/images/personal-website-icon.png'
 
-const apiDocsUrl = 'https://share-research.readthedocs.io'
-const githubUrl = 'https://github.com/chimnz/akeelo-web'
 const personalWebsiteUrl = 'https://hdqrs.co'
+const githubUrl = 'https://github.com/chimnz/akeelo-web'
+const apiDocsUrl = 'https://share-research.readthedocs.io'
 
 function HomePage() {
 	const router = useRouter()
@@ -23,6 +25,11 @@ function HomePage() {
 			}
 		})
 	}
+
+	// autofocus the text input field
+	useEffect(() => {
+		formInput.current.focus()
+	}, [])
 
 	return (
 		<>
@@ -40,8 +47,8 @@ function HomePage() {
 			</nav>
 			<main className={styles.main}>
 				<div className='main-inner'>
-					<div className={styles.contentWrapper}>
-						<div className={styles.searchWrapper}>
+					<div className={styles.searchOuter}>
+						<div className={styles.search}>
 							<div className={styles.logo}>akeelo</div>
 							<form
 								className={styles.form}
@@ -60,8 +67,8 @@ function HomePage() {
 								</button>
 							</form>
 						</div>
-						<div className={styles.attribution}>
-							<div className={styles.attributionInner}>
+						<div className={styles.attributionOuter}>
+							<div className={styles.attribution}>
 								powered by
 								<a href={apiDocsUrl}>
 									<img src={osfShareLogo} />

@@ -22,7 +22,7 @@
 	height: 70vh;
 }
 
-.contentWrapper {
+.searchOuter {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -30,7 +30,7 @@
 	height: 100%;
 }
 
-.searchWrapper {
+.search {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -71,13 +71,13 @@
 	height: 100%;
 }
 
-.attribution {
+.attributionOuter {
 	display: flex;
 	font-size: 2rem;
 	font-family: CleanFont;
 }
 
-.attributionInner {
+.attribution {
 	margin: auto;
 	display: flex;
 	justify-content: center;
