@@ -54,17 +54,19 @@ function HomePage() {
 								className={styles.form}
 								onSubmit={goToSearchPage}
 							>
-								<input
-									className={styles.textInput}
-									ref={formInput}
-									type='text'
-									placeholder='search for science'
-								/>
-								<button
-									className={styles.submitButton}
-								>
-									<img src={searchIcon} />
-								</button>
+								<div className={styles.formInner}>
+									<input
+										className={styles.textInput}
+										ref={formInput}
+										type='text'
+										placeholder='search for science'
+									/>
+									<button
+										className={styles.submitButton}
+									>
+										<img src={searchIcon} />
+									</button>
+								</div>
 							</form>
 						</div>
 						<div className={styles.attributionOuter}>
