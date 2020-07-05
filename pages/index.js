@@ -61,10 +61,12 @@ function HomePage() {
 							</form>
 						</div>
 						<div className={styles.attribution}>
-							powered by
-							<a href={apiDocsUrl}>
-								<img src={osfShareLogo} />
-							</a>
+							<div className={styles.attributionInner}>
+								powered by
+								<a href={apiDocsUrl}>
+									<img src={osfShareLogo} />
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
