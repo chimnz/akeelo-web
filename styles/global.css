@@ -3,6 +3,10 @@
 html, body { margin: 0; padding: 0; }
 html { font-size: 10px; }
 
+:root {
+	--accent-color: olivedrab;
+}
+
 body {
 	font-family: RegularFont;
 	background-color: whitesmoke;
@@ -27,15 +31,14 @@ main {
 }
 
 form * {
-	-webkit-appearance: none;
-    -moz-appearance: none;
 	appearance: none;
 	border-radius: 0;
 }
 
 input:focus {
-	outline-color: olivedrab;
-	margin-right: 2px;
+	outline-color: var(--accent-color);
+	box-sizing: border-box;
+	z-index: 1;
 }
 
 a {
@@ -46,7 +49,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: olivedrab;
+	color: var(--accent-color);
 	cursor: pointer;
 }
 
