@@ -80,13 +80,7 @@ function SearchPage(props) {
 	}
 
 	useEffect(() => {
-		// if no query parameters, do nothing, else, perform search then render
-		// prevent page from breaking
-		if (Object.getOwnPropertyNames(params).length === 0) {
-			return
-		} else {
-			updatePage()
-		}
+		updatePage()
 	}, [params])
 
 	return (

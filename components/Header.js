@@ -19,7 +19,7 @@ function Header(props) {
 						event.preventDefault()  // prevent page refresh
 						props.setResults([])  // clear previous search results
 						const newParams = {q: inputValue}
-						props.setParams(newParams)
+						props.setParams(newParams)  // set page query params
 					}}
 				>
 					<input
