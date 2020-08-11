@@ -12,20 +12,20 @@ const personalWebsiteUrl = 'https://hdqrs.co'
 const githubUrl = 'https://github.com/chimnz/akeelo-web'
 const apiDocsUrl = 'https://share-research.readthedocs.io'
 
-function generatePlaceholder() {
-	const queryExamples = [
-		'protein folding', 'turbulent flow', 'quantum gravity',
-		'solar flare', 'celiac disease', 'dark matter',
-		'coriolis effect', 'air pollution', 'butterfly migration',
-		'quark-gluon plasma', 'ball lightning', 'brinicle'
-
-	]
+const queryExamples = [
+	'protein folding', 'turbulent flow', 'quantum gravity',
+	'solar flare', 'celiac disease', 'dark matter',
+	'coriolis effect', 'air pollution', 'butterfly migration',
+	'quark-gluon plasma', 'ball lightning', 'brinicle'
+]
+function getRandomInt(min, max) {
 	// https://stackoverflow.com/a/1527834
-	function getRandomInt(min, max) {
-		return Math.floor(Math.random() * (max - min + 1)) + min
-	}
-	const idx = getRandomInt(0, queryExamples.length)
-	return `search for science (eg. ${queryExamples[idx]})`
+	return Math.floor(Math.random() * (max - min + 1)) + min
+}
+function randomQueryExample() {
+	const idx = getRandomInt(0, queryExamples.length-1)
+	console.log(idx)
+	return queryExamples[idx]
 }
 
 function HomePage() {
@@ -47,8 +47,14 @@ function HomePage() {
 	useEffect(() => {
 		formInput.current.focus()
 	}, [])
+	// set search input placeholder text
 	useEffect(() => {
-		setPlaceholder(generatePlaceholder())
+		let msg = 'search for science'
+		if (window.innerWidth >=  550) {
+			const q = randomQueryExample()
+			msg = `${msg} (eg. ${q})`
+		}
+		setPlaceholder(msg)
 	}, [])
 
 	return (
