@@ -1,6 +1,6 @@
 import styles from '../styles/HomePage.module.css'
 
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import searchIcon from '../assets/images/iconmonstr-search-thin.svg'
 
@@ -12,19 +12,17 @@ const personalWebsiteUrl = 'https://hdqrs.co'
 const githubUrl = 'https://github.com/chimnz/akeelo-web'
 const apiDocsUrl = 'https://share-research.readthedocs.io'
 
-const queryExamples = [
-	'celiac disease', 'protein folding', 'turbulent flow',
-	'quantum gravity', 'astrophysical jets', 'ball lightning',
-	'coriolis effect', 'enzyme kinetics', 'butterfly migration',
-	'opaque forest', 'gall wasp', 'lactose intolerance'
-]
-
 function generatePlaceholder() {
-	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+	const queryExamples = [
+		'protein folding', 'turbulent flow', 'quantum gravity',
+		'solar flare', 'celiac disease', 'dark matter',
+		'coriolis effect', 'air pollution', 'butterfly migration',
+		'quark-gluon plasma', 'ball lightning', 'brinicle'
+
+	]
+	// https://stackoverflow.com/a/1527834
 	function getRandomInt(min, max) {
-		min = Math.ceil(min)
-		max = Math.floor(max)
-		return Math.floor(Math.random() * (max - min)) + min
+		return Math.floor(Math.random() * (max - min + 1)) + min
 	}
 	const idx = getRandomInt(0, queryExamples.length)
 	return `search for science (eg. ${queryExamples[idx]})`
@@ -32,7 +30,8 @@ function generatePlaceholder() {
 
 function HomePage() {
 	const router = useRouter()
-	let formInput = React.createRef()
+	const formInput = React.createRef()
+	const [placeholder, setPlaceholder] = useState()
 
 	function goToSearchPage(e) {
 		e.preventDefault()
@@ -47,6 +46,9 @@ function HomePage() {
 	// autofocus the text input field
 	useEffect(() => {
 		formInput.current.focus()
+	}, [])
+	useEffect(() => {
+		setPlaceholder(generatePlaceholder())
 	}, [])
 
 	return (
@@ -77,7 +79,7 @@ function HomePage() {
 										className={styles.textInput}
 										ref={formInput}
 										type='text'
-										placeholder={generatePlaceholder()}
+										placeholder={placeholder}
 									/>
 									<button
 										className={styles.submitButton}
