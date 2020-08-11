@@ -12,6 +12,13 @@ const personalWebsiteUrl = 'https://hdqrs.co'
 const githubUrl = 'https://github.com/chimnz/akeelo-web'
 const apiDocsUrl = 'https://share-research.readthedocs.io'
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getRandomInt(min, max) {
+	min = Math.ceil(min)
+	max = Math.floor(max)
+	return Math.floor(Math.random() * (max - min)) + min
+}
+
 function HomePage() {
 	const router = useRouter()
 	let formInput = React.createRef()
@@ -25,6 +32,15 @@ function HomePage() {
 			}
 		})
 	}
+
+	const queryExamples = [
+		'celiac disease', 'protein folding', 'turbulent flow',
+		'quantum gravity', 'astrophysical jets', 'ball lightning',
+		'coriolis effect', 'enzyme kinetics', 'butterfly migration',
+		'opaque forest', 'gall wasp', 'lactose intolerance'
+	]
+	const i = getRandomInt(0, queryExamples.length)
+	const placeholder = `search for science (eg. ${queryExamples[i]})`
 
 	// autofocus the text input field
 	useEffect(() => {
@@ -59,7 +75,7 @@ function HomePage() {
 										className={styles.textInput}
 										ref={formInput}
 										type='text'
-										placeholder='search for science'
+										placeholder={placeholder}
 									/>
 									<button
 										className={styles.submitButton}
