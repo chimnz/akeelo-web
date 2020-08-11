@@ -16,7 +16,8 @@ const queryExamples = [
 	'protein folding', 'turbulent flow', 'quantum gravity',
 	'solar flare', 'celiac disease', 'dark matter',
 	'coriolis effect', 'air pollution', 'butterfly migration',
-	'quark-gluon plasma', 'ball lightning', 'brinicle'
+	'quark-gluon plasma', 'ball lightning', 'brinicle',
+	'ion propulsion'
 ]
 function getRandomInt(min, max) {
 	// https://stackoverflow.com/a/1527834
