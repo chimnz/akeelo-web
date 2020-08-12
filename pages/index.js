@@ -10,7 +10,7 @@ import personalWebsiteLogo from '../assets/images/personal-website-icon.png'
 
 const personalWebsiteUrl = 'https://hdqrs.co'
 const githubUrl = 'https://github.com/chimnz/akeelo-web'
-const apiDocsUrl = 'https://share-research.readthedocs.io'
+const osfShareLink = 'https://github.com/CenterForOpenScience/SHARE'
 
 const queryExamples = [
 	'protein folding', 'turbulent flow', 'quantum gravity',
@@ -99,7 +99,7 @@ function HomePage() {
 						<div className={styles.attributionOuter}>
 							<div className={styles.attribution}>
 								powered by
-								<a href={apiDocsUrl}>
+								<a href={osfShareLink}>
 									<img src={osfShareLogo} />
 								</a>
 							</div>
