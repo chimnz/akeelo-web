@@ -53,7 +53,7 @@ function HomePage() {
 		let msg = 'search for science'
 		if (window.innerWidth >=  550) {
 			const q = randomQueryExample()
-			msg = `${msg} (eg. ${q})`
+			msg = `${msg} (e.g. ${q})`
 		}
 		setPlaceholder(msg)
 	}, [])
