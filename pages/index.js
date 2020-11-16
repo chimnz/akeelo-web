@@ -8,7 +8,7 @@ import osfShareLogo from '../assets/images/osf-share-logo.png'
 import githubIcon from '../assets/images/iconmonstr-github-1.svg'
 import personalWebsiteLogo from '../assets/images/personal-website-icon.png'
 
-const personalWebsiteUrl = 'https://hdqrs.co'
+const personalWebsiteUrl = 'https://chimezie.dev'
 const githubUrl = 'https://github.com/chimnz/akeelo-web'
 const osfShareLink = 'https://github.com/CenterForOpenScience/SHARE'
 

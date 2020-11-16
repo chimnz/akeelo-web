@@ -6,6 +6,7 @@
   "deploy": "next build && next export -o docs && git checkout -- docs/CNAME && git checkout -- docs/.nojekyll && git add docs && git commit -m \"chore: regen site\" && git push origin master"
  },
  "dependencies": {
+  "caniuse-lite": "^1.0.30001158",
   "next": "^9.4.4",
   "next-images": "^1.4.0",
   "react": "^16.13.1",
